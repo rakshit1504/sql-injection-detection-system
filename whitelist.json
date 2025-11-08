@@ -1,0 +1,25 @@
+{
+  "fingerprints": [
+    "SELECT * FROM comments WHERE post_id=? ORDER BY created_at",
+    "INSERT INTO users(name,email)VALUES(?,?)",
+    "SELECT * FROM users WHERE id=?",
+    "SELECT * FROM users WHERE email LIKE '%@company.com",
+    "INSERT INTO logs(action,user_id)VALUES(?,?)",
+    "SELECT * FROM products WHERE category='electronics",
+    "SELECT * FROM users ORDER BY created_at DESC LIMIT ?",
+    "SELECT * FROM audit_log WHERE action=? AND date>'?-?-?",
+    "SELECT SUM(amount)FROM transactions WHERE user_id=?",
+    "SELECT AVG(price)FROM products WHERE category='books",
+    "SELECT u.name,p.title FROM users u JOIN posts p ON u.id=p.user_id",
+    "DELETE FROM sessions WHERE expires_at < NOW()",
+    "DELETE FROM users WHERE id=?",
+    "INSERT INTO notifications(user_id,message)VALUES(?,?)",
+    "UPDATE users SET email=? WHERE id=?",
+    "SELECT * FROM users WHERE status=? AND role='admin",
+    "UPDATE products SET stock=stock-? WHERE id=?",
+    "SELECT DISTINCT category FROM products",
+    "SELECT COUNT(*)FROM orders WHERE date>'?-?-?",
+    "SELECT name FROM users WHERE age>?"
+  ],
+  "count": 20
+}

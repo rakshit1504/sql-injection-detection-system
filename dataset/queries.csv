@@ -1,0 +1,41 @@
+query,label
+"SELECT * FROM users WHERE id=1",normal
+"SELECT name FROM users WHERE age>18",normal
+"INSERT INTO users (name, email) VALUES ('John', 'john@example.com')",normal
+"UPDATE users SET email='new@example.com' WHERE id=5",normal
+"DELETE FROM users WHERE id=10",normal
+"SELECT * FROM products WHERE category='electronics'",normal
+"SELECT COUNT(*) FROM orders WHERE date>'2023-01-01'",normal
+"SELECT u.name, p.title FROM users u JOIN posts p ON u.id=p.user_id",normal
+"SELECT * FROM users ORDER BY created_at DESC LIMIT 10",normal
+"SELECT AVG(price) FROM products WHERE category='books'",normal
+"SELECT * FROM users WHERE status='active' AND role='admin'",normal
+"INSERT INTO logs (action, user_id) VALUES ('login', 123)",normal
+"UPDATE products SET stock=stock-1 WHERE id=456",normal
+"SELECT * FROM comments WHERE post_id=789 ORDER BY created_at",normal
+"DELETE FROM sessions WHERE expires_at < NOW()",normal
+"SELECT DISTINCT category FROM products",normal
+"SELECT * FROM users WHERE email LIKE '%@company.com'",normal
+"SELECT SUM(amount) FROM transactions WHERE user_id=100",normal
+"INSERT INTO notifications (user_id, message) VALUES (50, 'Welcome!')",normal
+"SELECT * FROM audit_log WHERE action='update' AND date>'2023-06-01'",normal
+"SELECT * FROM users WHERE id='1' OR '1'='1'",sqli
+"SELECT * FROM users WHERE id=1; DROP TABLE users;--",sqli
+"SELECT * FROM users WHERE name='admin'--'",sqli
+"SELECT * FROM users UNION SELECT password FROM admin_users",sqli
+"SELECT * FROM products WHERE id=1 OR 1=1",sqli
+"SELECT * FROM users WHERE id=1' OR 'a'='a",sqli
+"SELECT * FROM users WHERE id=1/**/OR/**/1=1",sqli
+"SELECT * FROM users WHERE id=1 UNION ALL SELECT NULL,username,password FROM admin",sqli
+"SELECT * FROM users WHERE id=1; INSERT INTO users VALUES('hacker','pass');",sqli
+"SELECT * FROM users WHERE name=''; DROP DATABASE company;--'",sqli
+"SELECT * FROM products WHERE category='' OR 1=1--",sqli
+"SELECT password FROM users WHERE username='admin' OR '1'='1'--",sqli
+"SELECT * FROM users WHERE id=1 AND (SELECT COUNT(*) FROM admin)>0",sqli
+"SELECT * FROM users WHERE id=1' OR EXISTS(SELECT * FROM admin WHERE id=1)--",sqli
+"SELECT * FROM users WHERE id=1 OR ASCII(SUBSTRING((SELECT password FROM admin LIMIT 1),1,1))>64",sqli
+"SELECT * FROM users WHERE id=1'; EXEC xp_cmdshell('dir');--",sqli
+"SELECT * FROM users WHERE id=1 OR BENCHMARK(10000000,MD5(1))",sqli
+"SELECT * FROM users WHERE id=1 UNION SELECT table_name FROM information_schema.tables",sqli
+"SELECT * FROM users WHERE id=1 OR SLEEP(5)",sqli
+"SELECT * FROM users WHERE id=CHAR(49) OR CHAR(49)=CHAR(49)",sqli

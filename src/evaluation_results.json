@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-11-08T15:51:44.750737",
+  "dataset_path": "../dataset/queries.csv",
+  "whitelist_path": "../whitelist.json",
+  "total_queries": 40,
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "false_positive_rate": 0.0,
+    "true_positives": 20,
+    "false_positives": 0,
+    "true_negatives": 20,
+    "false_negatives": 0,
+    "total_queries": 40
+  },
+  "analysis": {
+    "by_label": {
+      "normal": {
+        "total": 20,
+        "correct": 20,
+        "incorrect": 0
+      },
+      "sqli": {
+        "total": 20,
+        "correct": 20,
+        "incorrect": 0
+      }
+    },
+    "misclassified_queries": [],
+    "unique_fingerprints": 40,
+    "fingerprint_analysis": {}
+  },
+  "whitelist_stats": {
+    "total_fingerprints": 20,
+    "whitelist_file": "../whitelist.json",
+    "file_exists": true
+  }
+}

@@ -1,0 +1,90 @@
+You are helping me build a simple SQL Injection Detection System using Python.
+The approach is Lightweight DB-side enforcement using a Proxy + Grammar Fingerprinting.
+
+Project Goals
+
+    Intercept SQL queries before they reach the database.
+
+    Normalize (fingerprint) queries to remove variable parts (like numbers/strings).
+
+    Maintain a whitelist of allowed query fingerprints (from training).
+
+    Flag any query whose fingerprint does not match the whitelist.
+
+    Keep everything very simple, clear, and minimal, suitable for a research project.
+
+Tech Stack
+
+    Python 3.10+
+
+    Libraries: scikit-learn, pandas, flask (for proxy simulation), sqlite3 (lightweight DB).
+
+    Dataset: Use a simple CSV/JSON with 2 columns: query, label (normal or sqli).
+
+    Example:
+        "SELECT * FROM users WHERE id=1", normal
+
+        "SELECT * FROM users WHERE id='1' OR '1'='1'", sqli
+
+Project Structure
+
+│── dataset/
+│   └── queries.csv   # Sample dataset of normal + SQLi queries
+│── src/
+│   ├── proxy.py      # Runs a proxy to intercept queries
+│   ├── fingerprint.py # Normalizes SQL queries
+│   ├── whitelist.py  # Builds and checks whitelist of fingerprints
+│   ├── train.py      # Builds whitelist from dataset
+│   └── evaluate.py   # Evaluates detection accuracy
+│── requirements.txt
+│── README.md
+
+Features to Implement
+
+Fingerprinting (fingerprint.py)
+
+Replace numbers and string literals with placeholders (?).
+
+Normalize keywords to uppercase.
+
+Example:
+
+"SELECT * FROM users WHERE id=42" → "SELECT * FROM users WHERE id=?"
+
+Whitelist Training (train.py)
+
+Read dataset of queries.
+
+Fingerprint all normal queries.
+
+Store unique fingerprints in whitelist (whitelist.json).
+
+Detection (whitelist.py)
+
+Load whitelist.
+
+If fingerprint not in whitelist → flag as suspicious.
+
+Proxy Simulation (proxy.py)
+
+Use Flask to simulate incoming queries via API.
+
+Intercept query, fingerprint it, check against whitelist.
+
+If safe → execute on SQLite DB.
+
+If suspicious → log & block.
+
+Evaluation (evaluate.py)
+
+Run test dataset.
+
+Print detection accuracy, precision, recall.
+
+Important Notes
+
+Keep everything self-contained (no external complex DB, just SQLite).
+
+The dataset can be very small (20–50 queries is fine).
+
+Code must run without complicated setup.
