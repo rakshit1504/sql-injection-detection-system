@@ -1,7 +1,7 @@
 # SQL Injection Detection System
 ## Lightweight DB-side Enforcement — Proxy + Grammar Fingerprinting
 
-**Team: RazorShield — Rakshit Bansal (22BCE0431), Sarthak Ray (22BCE3380)**
+
 
 ### Project Overview
 This repository implements a lightweight, explainable SQL Injection (SQLi) detection and prevention prototype. A Flask proxy intercepts SQL queries, normalizes them into structural fingerprints, and enforces a whitelist of approved fingerprints. Queries that do not match the whitelist are blocked and logged.
