@@ -171,12 +171,7 @@ F1 Score: 1.0000 (100.00%)
 - Fork the repo, create a feature branch, run tests locally, then open a pull request.
 - Keep whitelist updates auditable: automatic additions must be subject to manual review.
 
-### Appendix / Attachments
-- Add screenshots for:
-  - `python src/train.py` output
-  - `python src/evaluate.py` output
-  - Proxy run with allowed & blocked sample queries
-- Include source files under `src/` in the appendix section of any formal report.
+
 
 ### License & Usage
 This project is provided for academic and research use. It is not hardened for production use. Review and harden before any live deployment.
